@@ -156,72 +156,42 @@
     <h2>Descrição e Causa da Não Conformidade</h2>
     <textarea placeholder="Descreva a não conformidade e sua causa"></textarea>
 
-    <div class="row">
-      <div class="col">
-        <label>Executado por</label>
-        <input type="text">
-      </div>
-      <div class="col">
-        <label>Data</label>
-        <input type="date">
-      </div>
-    </div>
-
-    <h2>Plano de Ação - Ações Corretivas</h2>
-    <table id="acoesCorretivas">
-      <thead>
-        <tr>
-          <th>Ação</th>
-          <th>Responsável</th>
-          <th>Prazo</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-    <button onclick="addAcao('acoesCorretivas')">+ Adicionar Ação Corretiva</button>
-
-    <h2>Plano de Ação - Ações Preventivas</h2>
-    <table id="acoesPreventivas">
-      <thead>
-        <tr>
-          <th>Ação</th>
-          <th>Responsável</th>
-          <th>Prazo</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-    <button onclick="addAcao('acoesPreventivas')">+ Adicionar Ação Preventiva</button>
-
-    <div class="actions">
-      <button onclick="gerarRelatorio()">Gerar Relatório</button>
-      <button onclick="salvarNC()">Salvar NC</button>
-    </div>
-
+    <h2>Evidência da Não Conformidade</h2>
+<div class="row">
+  <div class="col">
+    <label>Anexar foto (evidência)</label>
+    <input type="file" accept="image/*">
   </div>
+</div>
 
-  <script>
-    function addAcao(tabelaId) {
-      const tabela = document.getElementById(tabelaId).querySelector("tbody");
-      const linha = document.createElement("tr");
+<h2>Plano de Ação - Ações Corretivas</h2>
+<table id="acoesCorretivas">
+  <thead>
+    <tr>
+      <th>Ação</th>
+      <th>Responsável</th>
+      <th>Prazo</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+<button onclick="addAcao('acoesCorretivas')">+ Adicionar Ação Corretiva</button>
 
-      linha.innerHTML = `
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="date"></td>
-      `;
+<h2>Plano de Ação - Ações Preventivas</h2>
+<table id="acoesPreventivas">
+  <thead>
+    <tr>
+      <th>Ação</th>
+      <th>Responsável</th>
+      <th>Prazo</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+<button onclick="addAcao('acoesPreventivas')">+ Adicionar Ação Preventiva</button>
 
-      tabela.appendChild(linha);
-    }
+<div class="actions">
+  <button onclick="salvarNC()">Salvar NC</button>
+</div>
 
-    function salvarNC() {
-      alert("Não Conformidade salva com sucesso!");
-    }
-
-    function gerarRelatorio() {
-      alert("Relatório gerado (etapa futura).");
-    }
-  </script>
-</body>
-</html>
 
