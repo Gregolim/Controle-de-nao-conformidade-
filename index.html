@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Registro de Não Conformidade</title>
+
   <style>
     body {
       font-family: Arial, Helvetica, sans-serif;
@@ -10,6 +11,7 @@
       margin: 0;
       padding: 20px;
     }
+
     .container {
       max-width: 1000px;
       margin: auto;
@@ -17,59 +19,85 @@
       padding: 20px;
       border: 1px solid #ccc;
     }
+
+    /* ===== CABEÇALHO ===== */
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .header img {
+      width: 100%;
+      max-height: 90px;
+      object-fit: contain;
+      margin-bottom: 10px;
+    }
+
     h1, h2 {
       text-align: center;
       margin: 10px 0;
     }
+
     h2 {
       font-size: 16px;
       background: #eee;
       padding: 6px;
     }
+
     .row {
       display: flex;
       gap: 10px;
       margin-bottom: 10px;
     }
+
     .col {
       flex: 1;
     }
+
     label {
       font-size: 13px;
       font-weight: bold;
     }
+
     input, textarea, select {
       width: 100%;
       padding: 6px;
       margin-top: 4px;
       font-size: 13px;
     }
+
     textarea {
       resize: vertical;
       min-height: 80px;
     }
+
     .checkbox-group label {
       font-weight: normal;
       margin-right: 15px;
     }
+
     table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 10px;
     }
+
     table, th, td {
       border: 1px solid #999;
     }
+
     th, td {
       padding: 6px;
       font-size: 13px;
       text-align: left;
     }
+
     button {
       padding: 8px 14px;
       font-size: 14px;
       cursor: pointer;
     }
+
     .actions {
       display: flex;
       justify-content: space-between;
@@ -77,42 +105,51 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container">
-    <h1>RG 26/POP 05</h1>
-    <h2>Registro de Controle de Não Conformidades<br>Análises de Causas e Ações Corretivas e Preventivas</h2>
+
+    <!-- ===== LOGO ===== -->
+    <div class="header">
+      <img src="cooasgolog.png" alt="Logo COOASGO">
+      <h1>RG 26/POP 05</h1>
+      <h2>
+        Registro de Controle de Não Conformidades<br>
+        Análises de Causas e Ações Corretivas e Preventivas
+      </h2>
+    </div>
 
     <h2>Identificação</h2>
     <div class="row">
       <div class="col">
         <label>Abertura da NC</label>
-        <input type="date" id="dataAbertura" />
+        <input type="date" id="dataAbertura">
       </div>
       <div class="col">
         <label>Código da NC</label>
-        <input type="text" id="codigoNC" placeholder="NC-001" />
+        <input type="text" id="codigoNC" placeholder="NC-001">
       </div>
     </div>
 
     <label>Tipo de Ocorrência</label>
     <div class="checkbox-group">
       <label><input type="checkbox"> Auditoria Interna</label>
-      <label><input type="checkbox"> Não Conformidade Interna/Processo</label>
+      <label><input type="checkbox"> NC Interna / Processo</label>
       <label><input type="checkbox"> Análise Crítica da Administração</label>
-      <label><input type="checkbox"> Pesquisa de Satisfação do Cliente</label><br><br>
-      <label><input type="checkbox"> Não Conformidade de Fornecedor</label>
-      <label><input type="checkbox"> Reclamação/devolução de Cliente</label>
-      <label><input type="checkbox"> Não Conformidade/Colaborador</label>
+      <label><input type="checkbox"> Pesquisa de Satisfação</label><br><br>
+      <label><input type="checkbox"> NC de Fornecedor</label>
+      <label><input type="checkbox"> Reclamação / Devolução</label>
+      <label><input type="checkbox"> NC / Colaborador</label>
     </div>
 
     <div class="row">
       <div class="col">
         <label>Setor onde ocorreu a NC</label>
-        <input type="text" />
+        <input type="text">
       </div>
       <div class="col">
         <label>Fornecedor (se aplicável)</label>
-        <input type="text" />
+        <input type="text">
       </div>
     </div>
 
@@ -122,28 +159,17 @@
     <div class="row">
       <div class="col">
         <label>Executado por</label>
-        <input type="text" />
+        <input type="text">
       </div>
       <div class="col">
         <label>Data</label>
-        <input type="date" />
+        <input type="date">
       </div>
     </div>
 
     <h2>Avaliação da Procedência</h2>
     <label><input type="radio" name="procedencia"> Procedente</label>
     <label><input type="radio" name="procedencia"> Improcedente</label>
-
-    <div class="row">
-      <div class="col">
-        <label>Ação</label>
-        <select>
-          <option>Selecione</option>
-          <option>Ação Corretiva</option>
-          <option>Ação Preventiva</option>
-        </select>
-      </div>
-    </div>
 
     <h2>Plano de Ação - Ações Corretivas</h2>
     <table id="acoesCorretivas">
@@ -171,58 +197,33 @@
     </table>
     <button onclick="addAcao('acoesPreventivas')">+ Adicionar Ação Preventiva</button>
 
-    <h2>Monitoramento e Verificação</h2>
-    <label>Monitoramento</label>
-    <textarea></textarea>
-
-    <div class="row">
-      <div class="col">
-        <label>Data</label>
-        <input type="date" />
-      </div>
-      <div class="col">
-        <label>Verificação</label>
-        <input type="text" />
-      </div>
-    </div>
-
     <div class="actions">
       <button onclick="gerarRelatorio()">Gerar Relatório</button>
-      <button>Salvar NC</button>
+      <button onclick="salvarNC()">Salvar NC</button>
     </div>
+
   </div>
 
   <script>
     function addAcao(tabelaId) {
-      const tabela = document.getElementById(tabelaId).querySelector('tbody');
-      const linha = document.createElement('tr');
+      const tabela = document.getElementById(tabelaId).querySelector("tbody");
+      const linha = document.createElement("tr");
+
       linha.innerHTML = `
         <td><input type="text"></td>
         <td><input type="text"></td>
         <td><input type="date"></td>
       `;
+
       tabela.appendChild(linha);
     }
 
     function salvarNC() {
-      const nc = {
-        codigo: document.getElementById('codigoNC').value,
-        dataAbertura: document.getElementById('dataAbertura').value,
-        descricao: document.querySelector('textarea').value,
-        dataSalvamento: new Date().toISOString()
-      };
-
-      let ncs = JSON.parse(localStorage.getItem('naoConformidades')) || [];
-      ncs.push(nc);
-      localStorage.setItem('naoConformidades', JSON.stringify(ncs));
-
-      alert('Não Conformidade salva com sucesso!');
+      alert("Não Conformidade salva com sucesso!");
     }
 
     function gerarRelatorio() {
-      const ncs = JSON.parse(localStorage.getItem('naoConformidades')) || [];
-      console.log(ncs);
-      alert('Relatório exibido no console por enquanto.');
+      alert("Relatório gerado (etapa futura).");
     }
   </script>
 </body>
