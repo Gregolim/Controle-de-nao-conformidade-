@@ -1,6 +1,9 @@
 #  Sistema de Registro de Não Conformidades
 
 https://gregolim.github.io/Controle-de-nao-conformidade-/
+## ▶️ Como executar o projeto
+1. Faça o download ou clone este repositório
+2. Abra o arquivo `index.html` no navegador
 
 Este projeto é um **formulário web para registro e acompanhamento de Não Conformidades**, desenvolvido para apoiar o setor de Qualidade.
 
