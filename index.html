@@ -128,10 +128,10 @@
         <label>Abertura da NC</label>
         <input type="date" id="dataAbertura">
       </div>
-      <div class="col">
-        <label>Código da NC</label>
-        <input type="text" id="codigoNC" placeholder="NC-001">
-      </div>
+     <div class="col">
+  <label>Código da NC</label>
+  <input type="text" id="codigoNC" readonly>
+</div>
     </div>
 
     <label>Tipo de Ocorrência</label>
@@ -213,9 +213,27 @@ function addAcao(tabelaId) {
   colResp.innerHTML = '<input type="text" placeholder="Responsável">';
   colPrazo.innerHTML = '<input type="date">';
 }
+      function gerarCodigoNC() {
+  let ultimoNumero = localStorage.getItem("ultimoNC");
+
+  if (!ultimoNumero) {
+    ultimoNumero = 1;
+  } else {
+    ultimoNumero = parseInt(ultimoNumero) + 1;
+  }
+
+  localStorage.setItem("ultimoNC", ultimoNumero);
+
+  const codigoFormatado = "NC-" + String(ultimoNumero).padStart(3, "0");
+  document.getElementById("codigoNC").value = codigoFormatado;
+}
+
+window.onload = gerarCodigoNC;
+
 </script>
     </body>
 </html>
+
 
 
 
