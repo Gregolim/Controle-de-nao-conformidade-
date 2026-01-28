@@ -13,7 +13,7 @@ Este projeto é um **formulário web para registro e acompanhamento de Não Conf
 - Seleção do tipo de ocorrência
 - Descrição detalhada da NC
 - Plano de ação corretivo e preventivo
-- Armazenamento dos dados no Firebase Firestore
+- Armazenamento MySQL
 
 ##  Tecnologias utilizadas
 - HTML
