@@ -105,7 +105,29 @@
     }
   </style>
 </head>
+<div class="actions">
+  <button onclick="salvarNC()">Salvar NC</button>
+</div>
 
+<!-- AQUI começa o JavaScript -->
+<script>
+function addAcao(tabelaId) {
+  const tabela = document
+    .getElementById(tabelaId)
+    .getElementsByTagName("tbody")[0];
+
+  const linha = tabela.insertRow();
+
+  const colAcao = linha.insertCell(0);
+  const colResp = linha.insertCell(1);
+  const colPrazo = linha.insertCell(2);
+
+  colAcao.innerHTML = '<input type="text" placeholder="Descreva a ação">';
+  colResp.innerHTML = '<input type="text" placeholder="Responsável">';
+  colPrazo.innerHTML = '<input type="date">';
+}
+</script>
+<!-- AQUI termina o JavaScript -->
 <body>
   <div class="container">
 
@@ -193,6 +215,7 @@
 <div class="actions">
   <button onclick="salvarNC()">Salvar NC</button>
 </div>
+
 
 
 
