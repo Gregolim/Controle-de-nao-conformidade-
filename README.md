@@ -19,7 +19,7 @@ Este projeto é um **formulário web para registro e acompanhamento de Não Conf
 - HTML
 - CSS
   
-- Firebase (Firestore) - Em estudo para aprender o 2 passo
+ Em estudo para seguir para o 2° passo
 
 ##  Objetivo
 Facilitar o controle, rastreabilidade e organização das Não Conformidades, substituindo controles manuais e planilhas.
